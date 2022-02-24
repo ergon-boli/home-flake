@@ -56,3 +56,39 @@ result/activate
 sudo echo "$HOME/.nix-profile/bin/fish" >> /etc/shells
 chsh -s ~/.nix-profile/bin/fish
 ```
+
+# Maintenance / usage tipps
+## Update nix itself
+```sh
+sudo -i sh -c 'nix-channel --update && nix-env -iA nixpkgs.nix && launchctl remove org.nixos.nix-daemon && launchctl load /Library/LaunchDaemons/org.nixos.nix-daemon.plist'
+```
+
+## Update flakes
+Everything:
+```sh
+nix flake update
+```
+
+Specific thing:
+```sh
+nix flake lock --update-input nixpkgs
+```
+
+## Run `nix-tree`
+Handy to see sizes etc.
+
+For some reason have to type `nix-tree` again after starting `nix-shell`:
+```sh
+nix-shell -p nix-tree
+```
+On one installation there's a weird error message with that, use this instead:
+```sh
+nix run nixpkgs#nix-tree
+```
+
+## Home manager generations
+Lists all previous result folders, for easy activation of an earlier version.
+```sh
+home manager generations
+```
+
