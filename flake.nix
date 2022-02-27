@@ -12,7 +12,6 @@
     homeManagerModule = {
    #   nixpkgs.overlays = [self.overlay];
       imports = [
-        ./modules/nixBase.nix
         ./modules/direnv.nix
         ./modules/common.nix
         ./modules/git.nix

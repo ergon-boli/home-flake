@@ -64,7 +64,7 @@
       
       # Nix
       HF = "cd ~/home-flake";
-      s = "HF && nix build && result/activate";
+      s = "HF && nix build && result/activate && source ~/.config/fish/config.fish";
     };
     # Abbreviate commonly used functions
     # An abbreviation will expand after <space> or <Enter> is hit

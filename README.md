@@ -26,12 +26,13 @@ sh install.sh --darwin-use-unencrypted-nix-store-volume
 ```sh
 zsh # if fish is active
 
-nix-env -iA nixpkgs.nixFlakes
+# nix-env -iA nixpkgs.nixFlakes
 mkdir -p ~/.config/nix 
 echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
 ```
 
 ## install home manager
+This whole section is not needed
 ```sh
 zsh # if fish is active
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
