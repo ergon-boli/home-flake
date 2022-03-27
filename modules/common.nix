@@ -10,6 +10,8 @@
     # Development
     pandoc # Convert formats, e.g. between markdown and jira
     rustup # Rust lang tools
+    
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "SourceCodePro" ]; })
   ];
   
   programs = {
