@@ -79,6 +79,7 @@
       gaa = "git add --all";
       gb = "git branch";
       gc = "git commit";
+      gca = "git commit --amend";
       gcam = "git commit -a -m";
       gcan = "git commit --amend --no-edit";
       gcb = "git checkout -b";
