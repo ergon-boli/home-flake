@@ -67,7 +67,7 @@
       s = "HF && nix build && result/activate && source ~/.config/fish/config.fish";
       
       # x86_64 version of homebrew
-      oldbrew = "/opt/homebrew/bin/brew";
+      oldbrew = "/usr/local/bin/brew";
     };
     # Abbreviate commonly used functions
     # An abbreviation will expand after <space> or <Enter> is hit

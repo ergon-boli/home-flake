@@ -6,6 +6,7 @@
     fd # Better `find`
     fzf # A fuzzy finder
     ripgrep # Better `grep`
+    #topgrade # meta update tool, does not compile currently, thus installed using brew
     
     # Development
     pandoc # Convert formats, e.g. between markdown and jira
