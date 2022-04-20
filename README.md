@@ -10,7 +10,7 @@ result/activate
 
 ----
 
-#Step by step Nix install
+# Step by step Nix install
 
 ## install nix
 ```sh
