@@ -22,6 +22,7 @@
       # Set syntax highlighting colours; var names defined here:
       # http://fishshell.com/docs/current/index.html#variables-color
       set fish_color_autosuggestion brblack
+      source ~/.config/fish/environment
     '';
     shellAliases = {
       # safety
