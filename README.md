@@ -1,5 +1,5 @@
 # home-flake
-A nix home manager flake to set up my stuff
+A nix home-manager flake to set up my stuff
 
 Build and activate with
 ```sh
@@ -31,7 +31,7 @@ mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
 ```
 
-## install home manager
+## install home-manager
 This whole section is not needed
 ```sh
 zsh # if fish is active
@@ -87,9 +87,9 @@ On one installation there's a weird error message with that, use this instead:
 nix run nixpkgs#nix-tree
 ```
 
-## Home manager generations
+## Home-manager generations
 Lists all previous result folders, for easy activation of an earlier version.
 ```sh
-home manager generations
+home-manager generations
 ```
 
