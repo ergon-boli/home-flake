@@ -32,7 +32,7 @@
         configuration = {
           imports = [self.homeManagerModule];
         };
-        system = "aarch64-darwin";
+        system = "x86_64-darwin";
         homeDirectory = "/Users/boli";
         username = "boli";
       };
