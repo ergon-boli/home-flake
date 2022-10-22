@@ -4,6 +4,8 @@
   programs.git = {
     enable = true;
     package = pkgs.gitAndTools.gitFull;
+    userName = "bOli";
+    userEmail = "github.profile@bueechi.net";
 
     # Enhanced diffs
     delta = {
