@@ -1,8 +1,7 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   # Add Fish plugins
-  home.packages = [ pkgs.fishPlugins.done ];
-  
+  home.packages = [pkgs.fishPlugins.done];
+
   programs.fish = {
     enable = true;
     plugins = [
@@ -17,7 +16,7 @@
           sha256 = "1hrl22dd0aaszdanhvddvqz3aq40jp9zi2zn0v1hjnf7fx4bgpma";
         };
       }
-    ]; 
+    ];
     shellInit = ''
       # Set syntax highlighting colours; var names defined here:
       # http://fishshell.com/docs/current/index.html#variables-color
@@ -29,17 +28,17 @@
       rm = "rm -i";
       cp = "cp -i";
       mv = "mv -i";
-      
+
       # convenience
       mkdir = "mkdir -p";
       du = "du -hs";
-      
+
       # replace some defaults
       cat = "bat";
       ls = "exa";
       la = "exa -alg";
       ll = "exa -lg";
-      
+
       # cd to important dirs
       DL = "cd ~/Downloads";
       nd = "cd ~/Documents/NAS/docu";
@@ -56,17 +55,17 @@
       gaf = "ws; ../git-all fetch; pj";
       gap = "ws; ../git-all pull; pj";
       gspp = "git stash && git pull && git stash pop";
-      
+
       # edit important files
       sshc = "bbedit ~/.ssh/config";
-      
+
       # Misc
       flush_dns = "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder";
-      
+
       # Nix
       HF = "cd ~/home-flake";
       s = "HF && nix build && result/activate && source ~/.config/fish/config.fish";
-      
+
       # x86_64 version of homebrew
       oldbrew = "/usr/local/bin/brew";
     };
@@ -96,11 +95,11 @@
       gp = "git pull";
       gpf = "git push -f";
       gph = "git push";
-      gr="git reset";
+      gr = "git reset";
       gra = "git rebase --abort";
       grb = "git rebase";
       grc = "git rebase --continue";
-      grH="git reset --hard";
+      grH = "git reset --hard";
       gri = "git rebase -i";
       grst = "git restore";
       gs = "git status";

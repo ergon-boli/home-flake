@@ -1,11 +1,10 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   # Git
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.git.enable
   programs.git = {
     enable = true;
     package = pkgs.gitAndTools.gitFull;
-    
+
     # Enhanced diffs
     delta = {
       enable = true;
@@ -17,7 +16,10 @@
       };
     };
     ignores = [
-      ".old" ".tmp" "*~" ".DS_Store"
+      ".old"
+      ".tmp"
+      "*~"
+      ".DS_Store"
     ];
     aliases = {
       a = "add";
@@ -38,11 +40,11 @@
       p = "pull";
       pf = "push -f";
       ph = "push";
-      r="reset";
+      r = "reset";
       ra = "rebase --abort";
       rb = "rebase";
       rc = "rebase --continue";
-      rH="reset --hard";
+      rH = "reset --hard";
       ri = "rebase -i";
       rst = "restore";
       s = "status";

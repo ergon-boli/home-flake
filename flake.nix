@@ -7,10 +7,15 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
-   # overlay = import ./overlay.nix inputs;
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  }: {
+    # overlay = import ./overlay.nix inputs;
     homeManagerModule = {
-   #   nixpkgs.overlays = [self.overlay];
+      #   nixpkgs.overlays = [self.overlay];
       imports = [
         ./modules/direnv.nix
         ./modules/common.nix
@@ -20,7 +25,8 @@
     };
     activationPackageFor = def: let
       configuration = home-manager.lib.homeManagerConfiguration def;
-    in configuration.activationPackage;
+    in
+      configuration.activationPackage;
 
     defaultTemplate = {
       description = "Template to use nix-home";
@@ -39,8 +45,8 @@
     };
     homeManagerConfiguration = self.homeManagerConfigurations.base;
     defaultPackage = {
-    	x86_64-darwin = self.homeManagerConfiguration.activationPackage;
-    	aarch64-darwin = self.homeManagerConfiguration.activationPackage;
+      x86_64-darwin = self.homeManagerConfiguration.activationPackage;
+      aarch64-darwin = self.homeManagerConfiguration.activationPackage;
     };
   };
 }

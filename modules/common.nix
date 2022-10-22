@@ -1,5 +1,4 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # CLI Basics
     exa # Better `ls`
@@ -7,18 +6,17 @@
     fzf # A fuzzy finder
     ripgrep # Better `grep`
     #topgrade # meta update tool, does not compile currently, thus installed using brew
-    
+
     # Development
     pandoc # Convert formats, e.g. between markdown and jira
     rustup # Rust lang tools
-    
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "SourceCodePro" ]; })
+
+    (nerdfonts.override {fonts = ["JetBrainsMono" "SourceCodePro"];})
   ];
-  
+
   programs = {
-  
-  	home-manager.enable = true;
-  	
+    home-manager.enable = true;
+
     # Starship Prompt
     # https://rycee.gitlab.io/home-manager/options.html#opt-programs.starship.enable
     starship = {
@@ -32,7 +30,7 @@
         directory.truncation_length = 3; # number of directories not to truncate
       };
     };
-    
+
     # Bat, a substitute for cat.
     # https://github.com/sharkdp/bat
     # https://rycee.gitlab.io/home-manager/options.html#opt-programs.bat.enable
