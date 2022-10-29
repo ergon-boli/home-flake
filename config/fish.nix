@@ -64,7 +64,7 @@
 
       # Nix
       HF = "cd ~/home-flake";
-      s = "HF && nix build && result/activate && source ~/.config/fish/config.fish";
+      s = "cd ~/home-flake/template && nix build && result/activate && source ~/.config/fish/config.fish";
 
       # x86_64 version of homebrew
       oldbrew = "/usr/local/bin/brew";

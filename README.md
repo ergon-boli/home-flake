@@ -47,7 +47,7 @@ nix-shell '<home-manager>' -A install
 ```sh
 cd
 git clone git@github.com:shrugalic/home-flake.git
-cd home-flake/
+cd home-flake/template
 nix build
 result/activate
 ```

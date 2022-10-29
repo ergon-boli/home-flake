@@ -13,15 +13,15 @@ with lib; let
     optionalAttrs (dir != null) {
       # flake based home manager utilities
       hmCd = "cd ${dir}";
-      hmBuild = "(hmCd && nix build .)";
-      hmSwitch = "(hmCd && ./result/activate) && source ~/.zshrc";
+      hmBuild = "hmCd && nix build .";
+      hmSwitch = "hmCd && ./result/activate && source ~/.config/fish/config.fish";
     }
     // optionalAttrs (baseFlake != null) {
       # assuming a home-flake setup
-      hmPull = "(hmCd && nix flake lock --update-input ${baseFlake})";
+      hmPull = "hmCd && nix flake lock --update-input ${baseFlake}";
       hmPullBuild = "hmPull && hmBuild";
       hmPullSwitch = "hmPullBuild && hmSwitch";
-      hmLocalBuild = "(hmCd && nix build . --override-input ${baseFlake} ./${baseFlake})";
+      hmLocalBuild = "hmCd && nix build . --override-input ${baseFlake} ./${baseFlake}";
       hmLocalSwitch = "hmLocalBuild && hmSwitch";
     };
   homePrefixDefault =
@@ -60,6 +60,6 @@ in {
       experimental-features = cfg.experimentalFeatures;
     };
   };
-  config.programs.zsh.shellAliases = aliases; # optionalAttrs (cfg.hmConfigDir != null) aliases;
+  config.programs.fish.shellAliases = aliases; # optionalAttrs (cfg.hmConfigDir != null) aliases;
   config.home.stateVersion = "22.11"; # override with 'home.stateVersion = lib.mkForce "22.05";'
 }

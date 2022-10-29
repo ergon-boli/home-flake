@@ -17,17 +17,18 @@
     ...
   }:
     home-flake.lib.homeConfigurations {
-      default = "yourUsername";
-      yourUsername = {
+      default = "boli";
+      boli = {
         imports = [
           # include modules: local or from other flakes
           home-flake.homeManagerModules.base
+          home-flake.homeManagerModules.boli
           # ./myconfig.nix # additional modules
         ];
         # additional inline configuration
         programs.git = {
-          userName = "";
-          userEmail = "";
+          userName = "bOli";
+          userEmail = "github.profile@bueechi.net";
         };
       };
     }
