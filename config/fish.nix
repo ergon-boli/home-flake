@@ -63,8 +63,8 @@
       flush_dns = "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder";
 
       # Nix
-      HF = "cd ~/home-flake";
-      s = "cd ~/home-flake/template && nix build && result/activate && source ~/.config/fish/config.fish";
+      HF = "cd ~/Documents/nix-home/home-flake";
+      s = "cd ~/Documents/nix-home && nix build && result/activate && source ~/.config/fish/config.fish";
 
       # x86_64 version of homebrew
       oldbrew = "/usr/local/bin/brew";

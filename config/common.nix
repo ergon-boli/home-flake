@@ -41,4 +41,7 @@
       };
     };
   };
+  
+  nix.hmConfigDir = "~/Documents/nix-home";
+  nix.hmBaseFlake = "home-flake";
 }

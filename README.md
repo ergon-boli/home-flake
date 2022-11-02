@@ -45,9 +45,10 @@ nix-shell '<home-manager>' -A install
 
 ## install my stuff
 ```sh
-cd
+cd ~/Documents/nix-home
 git clone git@github.com:shrugalic/home-flake.git
-cd home-flake/template
+cp home-flake/template/flake.nix .
+# edit flake.nix as needed
 nix build
 result/activate
 ```
