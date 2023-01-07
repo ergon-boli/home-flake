@@ -94,3 +94,13 @@ Lists all previous result folders, for easy activation of an earlier version.
 home-manager generations
 ```
 
+## Garbage collection
+See also [Garbage Collection in Nix Reference Manual](https://nixos.org/manual/nix/unstable/package-management/garbage-collection.html).
+
+To delete all old (non-current) generations of your current profile:
+
+	nix-env --delete-generations old
+
+After removing appropriate old generations you can run the garbage collector as follows:
+
+	nix-store --gc
