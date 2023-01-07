@@ -4,6 +4,7 @@
     exa # Better `ls`
     fd # Better `find`
     fzf # A fuzzy finder
+    jq # command line JSON processor
     ripgrep # Better `grep`
     #topgrade # meta update tool, does not compile currently, thus installed using brew
 
@@ -40,8 +41,24 @@
         italic-text = "always";
       };
     };
+
+    # See https://github.com/alacritty/alacritty/blob/master/alacritty.yml for example (normal) config
+    alacritty = {
+      enable = true;
+      settings = {
+        font = rec {
+          normal.family = "SauceCodePro Nerd Font Mono";
+          bold = {style = "Bold";};
+          size = 13;
+        };
+        offset = {
+          x = 0;
+          y = 0;
+        };
+      };
+    };
   };
-  
+
   nix.hmConfigDir = "~/Documents/nix-home";
   nix.hmBaseFlake = "home-flake";
 }
