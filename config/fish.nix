@@ -51,6 +51,7 @@
       md = "set -g PROJECT mnet && set -g WORKSPACE $WORKSPACES/mnet/devel/ && pj";
       mt = "set -g PROJECT mnet && set -g WORKSPACE $WORKSPACES/mnet/test/ && pj";
       mp = "set -g PROJECT mnet && set -g WORKSPACE $WORKSPACES/mnet/prod/ && pj";
+      mgb = "set -g PROJECT mnet && set -g WORKSPACE $WORKSPACES/mnet/gradle/ && pj";
       wg = "cd ~/work/git_projects";
       gaf = "ws; ../git-all fetch; pj";
       gap = "ws; ../git-all pull; pj";
