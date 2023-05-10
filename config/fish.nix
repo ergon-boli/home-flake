@@ -124,6 +124,15 @@
         description = "Make a directory tree and enter it";
         body = "mkdir -p $argv[1]; and cd $argv[1]";
       };
+      yabai-hash-update = {
+        description = "Updates the hash string in the yabai sudoers file";
+        body = ''
+          set hashString "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d ' ' -f 1) $(which yabai) --load-sa"
+          sudo rm /private/etc/sudoers.d/yabai
+          echo $hashString | sudo tee -a /private/etc/sudoers.d/yabai
+          sudo chmod +x /private/etc/sudoers.d/yabai
+        '';
+      };
     };
   };
 }
