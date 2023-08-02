@@ -7,6 +7,10 @@
     userName = "bOli";
     userEmail = "github.profile@bueechi.net";
 
+    # Git large file storage support
+    lfs = {
+      enable = true;
+    };
     # Enhanced diffs
     delta = {
       enable = true;
