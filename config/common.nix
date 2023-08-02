@@ -27,6 +27,7 @@
         directory.truncate_to_repo = false; # show the path above the current repo too
         directory.fish_style_pwd_dir_length = 1; # turn on fish directory truncation
         directory.truncation_length = 3; # number of directories not to truncate
+        battery.disabled = true; # Work around bug in sharship v1.16.0 https://github.com/starship/starship/issues/5350
       };
     };
 
