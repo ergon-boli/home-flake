@@ -94,7 +94,7 @@
       gl = "git log --graph --oneline --decorate";
       glp = "git prettylog";
       gp = "git pull";
-      gpf = "git push -f";
+      gpf = "git push --force-with-lease";
       gph = "git push";
       gr = "git reset";
       gra = "git rebase --abort";

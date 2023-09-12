@@ -44,7 +44,7 @@
       f = "fetch";
       l = "log --graph --oneline --decorate";
       p = "pull";
-      pf = "push -f";
+      pf = "push --force-with-lease";
       ph = "push";
       r = "reset";
       ra = "rebase --abort";
