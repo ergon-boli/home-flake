@@ -114,6 +114,9 @@
       gus = "git restore --staged";
       guc = "git reset --soft HEAD~1";
       v = "vim";
+      yss = "yabai --start-service";
+      yos = "yabai --stop-service";
+      yrs = "yabai --restart-service";
     };
     functions = {
       fish_greeting = {
