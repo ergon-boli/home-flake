@@ -32,6 +32,8 @@
       # convenience
       mkdir = "mkdir -p";
       du = "du -hs";
+      sha256 = "shasum -a 256 ";
+      m2j = "pbpaste | pandoc --from markdown --to jira | pbcopy";
 
       # replace some defaults
       cat = "bat";
