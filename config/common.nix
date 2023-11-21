@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     # CLI Basics
-    exa # Better `ls`
+    eza # Better `ls`
     fd # Better `find`
     fzf # A fuzzy finder
     jq # command line JSON processor

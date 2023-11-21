@@ -37,9 +37,9 @@
 
       # replace some defaults
       cat = "bat";
-      ls = "exa";
-      la = "exa -alg";
-      ll = "exa -lg";
+      ls = "eza";
+      la = "eza -alg";
+      ll = "eza -lg";
 
       # cd to important dirs
       DL = "cd ~/Downloads";
