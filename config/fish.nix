@@ -22,6 +22,7 @@
       # http://fishshell.com/docs/current/index.html#variables-color
       set fish_color_autosuggestion brblack
       source ~/.config/fish/environment
+      zoxide init fish | source
     '';
     shellAliases = {
       # safety
@@ -37,6 +38,7 @@
 
       # replace some defaults
       cat = "bat";
+      cd = "z";
       ls = "eza";
       la = "eza -alg";
       ll = "eza -lg";

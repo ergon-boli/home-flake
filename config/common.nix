@@ -6,6 +6,7 @@
     fzf # A fuzzy finder
     jq # command line JSON processor
     ripgrep # Better `grep`
+    zoxide # Better `cd`
     #topgrade # meta update tool, does not compile currently, thus installed using brew
 
     # Development
