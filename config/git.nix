@@ -19,6 +19,7 @@
         navigate = true;
         line-numbers = true;
         syntax-theme = "TwoDark";
+        tabs = 4;
       };
     };
     ignores = [
