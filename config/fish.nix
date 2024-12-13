@@ -106,6 +106,7 @@
       grc = "git rebase --continue";
       grH = "git reset --hard";
       gri = "git rebase -i";
+      grs = "git restore --staged";
       grst = "git restore";
       gs = "git status";
       gsp = "git stash pop";
