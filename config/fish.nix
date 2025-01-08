@@ -52,9 +52,9 @@
       te = "cd $WORKSPACE/taifun-evergreen";
       jtt = "cd $WORKSPACE/jtt";
       jet = "cd $WORKSPACE/jet";
-      md = "set -g PROJECT mnet && set -g WORKSPACE $WORKSPACES/mnet/devel/ && pj";
-      mt = "set -g PROJECT mnet && set -g WORKSPACE $WORKSPACES/mnet/test/ && pj";
-      mp = "set -g PROJECT mnet && set -g WORKSPACE $WORKSPACES/mnet/prod/ && pj";
+      md = "set -g PROJECT taifun-evergreen/mnet && set -g WORKSPACE $WORKSPACES/mnet/devel/ && pj";
+      mt = "set -g PROJECT taifun-evergreen/mnet && set -g WORKSPACE $WORKSPACES/mnet/test/ && pj";
+      mp = "set -g PROJECT taifun-evergreen/mnet && set -g WORKSPACE $WORKSPACES/mnet/prod/ && pj";
       dts = "set -g PROJECT dtst && set -g WORKSPACE $WORKSPACES/dtst/devel/ && pj";
       wg = "cd ~/work/git_projects";
       gaf = "ws; ../git-all fetch; pj";
