@@ -49,8 +49,11 @@
       ws = "cd $WORKSPACE";
       pj = "cd $WORKSPACE/$PROJECT";
       te = "cd $WORKSPACE/taifun-evergreen";
-      jtt = "cd $WORKSPACE/jtt";
+      eas = "cd $WORKSPACE/eas";
       jet = "cd $WORKSPACE/jet";
+      jtt = "cd $WORKSPACE/jtt";
+      lib = "cd $WORKSPACE/ergon-lib";
+      tts = "cd $WORKSPACE/tts";
       md = "set -g PROJECT taifun-evergreen/mnet && set -g WORKSPACE $WORKSPACES/mnet/devel/ && pj";
       mt = "set -g PROJECT taifun-evergreen/mnet && set -g WORKSPACE $WORKSPACES/mnet/test/ && pj";
       mp = "set -g PROJECT taifun-evergreen/mnet && set -g WORKSPACE $WORKSPACES/mnet/prod/ && pj";
