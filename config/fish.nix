@@ -54,8 +54,8 @@
       jtt = "cd $WORKSPACE/jtt";
       lib = "cd $WORKSPACE/ergon-lib";
       tts = "cd $WORKSPACE/tts";
-      md = "set -g PROJECT taifun-evergreen/mnet && set -g WORKSPACE $WORKSPACES/mnet/devel/ && pj";
-      mt = "set -g PROJECT taifun-evergreen/mnet && set -g WORKSPACE $WORKSPACES/mnet/test/ && pj";
+      md = "set -g PROJECT taifun-evergreen/mnet && set -g WORKSPACE $WORKSPACES/mnet/devel/ && te";
+      mt = "set -g PROJECT taifun-evergreen/mnet && set -g WORKSPACE $WORKSPACES/mnet/test/ && te";
       mp = "set -g PROJECT taifun-evergreen/mnet && set -g WORKSPACE $WORKSPACES/mnet/prod/ && pj";
       dts = "set -g PROJECT dtst && set -g WORKSPACE $WORKSPACES/dtst/devel/ && pj";
       wg = "cd ~/work/git_projects";
