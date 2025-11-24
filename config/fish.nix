@@ -59,8 +59,8 @@
       mp = "set -g PROJECT taifun-evergreen/mnet && set -g WORKSPACE $WORKSPACES/mnet/prod/ && te";
       dts = "set -g PROJECT dtst && set -g WORKSPACE $WORKSPACES/dtst/devel/ && pj";
       wg = "cd ~/work/git_projects";
-      gaf = "ws; ../git-all fetch; pj";
-      gap = "ws; ../git-all pull; pj";
+      gaf = "ws; ../git-all fetch; te";
+      gap = "ws; ../git-all pull; te";
       gspp = "git stash && git pull && git stash pop";
 
       # edit important files
