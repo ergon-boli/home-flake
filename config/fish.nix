@@ -143,6 +143,21 @@
           sudo chmod +x /private/etc/sudoers.d/yabai
         '';
       };
+      copy_aoc_template = {
+        description = "Prepare AOC file for the current day next day (next from 7 a.m.)";
+        body = ''
+          set day (if test (date +%-H) -gt 6
+            echo (date -v+1d +%d)
+          else
+            echo (date +%d)
+          end)
+          cp src/template.rs src/day$day.rs && sed -i "" s/01/$day/g src/day$day.rs && touch input/day$day.txt
+        '';
+      };
+      download_aoc_input = {
+        description = "Download the current day's AOC input";
+        body = "curl https://adventofcode.com/$(date +%Y)/day/$(date +%-d)/input -o input/day$(date +%d).txt --cookie ~/.COOKIE --user-agent 'shrugalic (Github) via curl'";
+      };
     };
   };
 }
