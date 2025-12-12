@@ -7,7 +7,7 @@
     jq # command line JSON processor
     ripgrep # Better `grep`
     zoxide # Better `cd`
-    #topgrade # meta update tool, does not compile currently, thus installed using brew
+    topgrade # meta update tool, does not compile currently, thus installed using brew
 
     # Development
     pandoc # Convert formats, e.g. between markdown and jira
