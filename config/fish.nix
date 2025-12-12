@@ -24,6 +24,9 @@
       source ~/.config/fish/environment
       zoxide init fish | source
     '';
+    shellInitLast = ''
+      zoxide init fish | source
+    '';
     shellAliases = {
       # safety
       rm = "rm -i";

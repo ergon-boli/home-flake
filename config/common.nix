@@ -6,7 +6,6 @@
     fzf # A fuzzy finder
     jq # command line JSON processor
     ripgrep # Better `grep`
-    zoxide # Better `cd`
     topgrade # meta update tool, does not compile currently, thus installed using brew
 
     # Development
@@ -30,6 +29,11 @@
         directory.truncation_length = 3; # number of directories not to truncate
         battery.disabled = true; # Work around bug in sharship v1.16.0 https://github.com/starship/starship/issues/5350
       };
+    };
+
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
     };
 
     # Bat, a substitute for cat.
