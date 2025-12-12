@@ -41,7 +41,7 @@
 
       # replace some defaults
       cat = "bat";
-      ls = "eza";
+      l = "eza";
       la = "eza -alg";
       ll = "eza -lg";
 
