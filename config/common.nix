@@ -27,6 +27,7 @@
         directory.truncate_to_repo = false; # show the path above the current repo too
         directory.fish_style_pwd_dir_length = 1; # turn on fish directory truncation
         directory.truncation_length = 3; # number of directories not to truncate
+        time.disabled = false;
       };
     };
 
