@@ -18,7 +18,7 @@ According to [the documentation](https://nixos.org/download/).
 ## install my stuff
 ```sh
 cd ~/Documents/nix-home
-git clone git@github.com:shrugalic/home-flake.git
+git clone git@github.com:ergon-boli/home-flake.git
 cp home-flake/template/flake.nix .
 # edit flake.nix as needed
 nix build

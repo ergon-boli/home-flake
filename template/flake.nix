@@ -2,7 +2,7 @@
   description = "Home Manager Configuration";
 
   inputs = {
-    home-flake.url = "github:shrugalic/home-flake";
+    home-flake.url = "github:ergon-boli/home-flake";
     nixpkgs.follows = "home-flake/nixpkgs";
     flake-utils.follows = "home-flake/flake-utils";
     #in case you need to use a different nixpkgs
