@@ -26,9 +26,9 @@
           # ./myconfig.nix # additional modules
         ];
         # additional inline configuration
-        programs.git = {
-          userName = "bOli";
-          userEmail = "github.profile@bueechi.net";
+        programs.git.settings = {
+          user.name = "bOli";
+          user.email = "github.profile@bueechi.net";
         };
       };
     }

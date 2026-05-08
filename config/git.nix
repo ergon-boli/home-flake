@@ -3,24 +3,10 @@
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.git.enable
   programs.git = {
     enable = true;
-    package = pkgs.gitAndTools.gitFull;
-    userName = "bOli";
-    userEmail = "github.profile@bueechi.net";
-
+    package = pkgs.gitFull;
     # Git large file storage support
     lfs = {
       enable = true;
-    };
-    # Enhanced diffs
-    delta = {
-      enable = true;
-      options = {
-        side-by-side = false;
-        navigate = true;
-        line-numbers = true;
-        syntax-theme = "TwoDark";
-        tabs = 4;
-      };
     };
     ignores = [
       ".old"
@@ -28,7 +14,9 @@
       "*~"
       ".DS_Store"
     ];
-    aliases = {
+    settings.user.name = "bOli";
+    settings.user.email = "github.profile@bueechi.net";
+    settings.alias = {
       a = "add";
       aa = "add --all";
       ap = "add -p";
@@ -64,6 +52,18 @@
       t = "tag";
       us = "restore --staged";
       uc = "reset --soft HEAD~1";
+    };
+  };
+  # Enhanced diffs
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      side-by-side = false;
+      navigate = true;
+      line-numbers = true;
+      syntax-theme = "TwoDark";
+      tabs = 4;
     };
   };
 }
