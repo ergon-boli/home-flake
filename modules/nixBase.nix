@@ -25,7 +25,7 @@ with lib; let
       hmLocalSwitch = "hmLocalBuild && hmSwitch";
     };
   homePrefixDefault =
-    if (builtins.match ".*-darwin" pkgs.system != null)
+    if (builtins.match ".*-darwin" pkgs.stdenv.hostPlatform.system != null)
     then "/Users"
     else "/home";
 in {
