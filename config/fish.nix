@@ -5,6 +5,18 @@
   programs.fish = {
     enable = true;
     plugins = [
+      # Must sort before nix-env (plugin-0... < plugin-n...) so it runs first.
+      # Fish's ls function auto-detects color support by probing `ls -G /` on
+      # startup. This probe hangs on macOS (likely an automounted volume under /
+      # is slow to stat). Pre-setting these variables skips the detection.
+      {
+        name = "00-ls-command-fix";
+        src = pkgs.writeTextDir "conf.d/00-ls-command-fix.fish" ''
+          set -g __fish_ls_command ls
+          set -g __fish_ls_color_opt -G
+          set -g __fish_ls_indicators_opt -F
+        '';
+      }
       # Need this when using Fish as a default macOS shell in order to pick
       # up ~/.nix-profile/bin
       {
