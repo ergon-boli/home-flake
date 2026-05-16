@@ -15,13 +15,13 @@ result/activate
 ## install nix
 According to [the documentation](https://nixos.org/download/).
 
-## install my stuff
+## install my stuff initially
 ```sh
 cd ~/Documents/nix-home
 git clone git@github.com:ergon-boli/home-flake.git
 cp home-flake/template/flake.nix .
 # edit flake.nix as needed
-nix build
+/nix/var/nix/profiles/default/bin/nix build --extra-experimental-features nix-command --extra-experimental-features flakes
 result/activate
 ```
 
