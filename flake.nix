@@ -7,6 +7,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
     #   flake-utils.inputs.nixpkgs.follows = "nixpkgs";
+    hunk = {
+      url = "github:modem-dev/hunk";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -27,6 +31,7 @@
       };
       boli = {
         imports = [
+          inputs.hunk.homeManagerModules.default
           ./config/common.nix
           ./config/git.nix
           ./config/fish.nix
