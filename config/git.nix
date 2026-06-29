@@ -54,16 +54,14 @@
       uc = "reset --soft HEAD~1";
     };
   };
-  # Enhanced diffs
-  programs.delta = {
+  # Enhanced diffs with [hunk](https://github.com/modem-dev/hunk) as pager
+  programs.hunk = {
     enable = true;
     enableGitIntegration = true;
-    options = {
-      side-by-side = false;
-      navigate = true;
-      line-numbers = true;
-      syntax-theme = "TwoDark";
-      tabs = 4;
+    settings = {
+      theme = "auto";
+      mode = "stack";
+      line_numbers = true;
     };
   };
 }
