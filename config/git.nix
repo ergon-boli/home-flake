@@ -62,6 +62,7 @@
       theme = "auto";
       mode = "stack";
       line_numbers = true;
+      wrap_lines = true;
     };
   };
 }
