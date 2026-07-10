@@ -173,6 +173,50 @@
         description = "Download the current day's AOC input";
         body = "curl https://adventofcode.com/$(date +%Y)/day/$(date +%-d)/input -o input/day$(date +%d).txt --cookie ~/.COOKIE --user-agent 'shrugalic (Github) via curl'";
       };
+      hunk-walk = {
+        description = "Review each commit of a jj revset in hunk, oldest first";
+        body = ''
+          set -l revset 'trunk()..@'
+          if test (count $argv) -gt 0
+              set revset $argv[1]
+          end
+          for c in (jj log -r $revset --no-graph --reversed -T 'change_id.short() ++ "\n"')
+              echo
+              jj log -r $c --no-graph -T 'change_id.short() ++ " " ++ description'
+              echo
+              read -l -P '[Enter] review · [s]kip · [q]uit > ' action
+              switch $action
+                  case q
+                      return
+                  case s
+                      continue
+              end
+              hunk show $c; or break
+          end
+        '';
+      };
+      jj-walk = {
+        description = "Review each commit of a jj revset via jj show (hunk pager), oldest first";
+        body = ''
+          set -l revset 'trunk()..@'
+          if test (count $argv) -gt 0
+              set revset $argv[1]
+          end
+          for c in (jj log -r $revset --no-graph --reversed -T 'change_id.short() ++ "\n"')
+              echo
+              jj log -r $c --no-graph -T 'change_id.short() ++ " " ++ description.first_line() ++ "\n"'
+              echo
+              read -l -P '[Enter] review · [s]kip · [q]uit > ' action
+              switch $action
+                  case q
+                      return
+                  case s
+                      continue
+              end
+              jj show $c; or break
+          end
+        '';
+      };
     };
   };
 }
