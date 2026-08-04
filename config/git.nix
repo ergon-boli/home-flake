@@ -16,6 +16,23 @@
     ];
     settings.user.name = "bOli";
     settings.user.email = "github.profile@bueechi.net";
+    # Work identity for everything on the ergon-boli GitHub account
+    includes = [
+      {
+        condition = "hasconfig:remote.*.url:git@github.com:ergon-boli/**";
+        contents.user = {
+          name = "Oliver Büechi";
+          email = "oliver.bueechi@ergon.ch";
+        };
+      }
+      {
+        condition = "hasconfig:remote.*.url:https://github.com/ergon-boli/**";
+        contents.user = {
+          name = "Oliver Büechi";
+          email = "oliver.bueechi@ergon.ch";
+        };
+      }
+    ];
     settings.pull.rebase = true;
     settings.init.defaultBranch = "main";
     settings.alias = {
