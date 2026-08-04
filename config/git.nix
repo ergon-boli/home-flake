@@ -16,6 +16,8 @@
     ];
     settings.user.name = "bOli";
     settings.user.email = "github.profile@bueechi.net";
+    settings.pull.rebase = true;
+    settings.init.defaultBranch = "main";
     settings.alias = {
       a = "add";
       aa = "add --all";
