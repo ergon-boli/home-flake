@@ -1,4 +1,14 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
+  # Keep Claude Code config in ~/.claude instead of scattering it in $HOME
+  # https://github.com/anthropics/claude-code/issues/24479
+  home.sessionVariables = {
+    CLAUDE_CONFIG_DIR = "${config.home.homeDirectory}/.claude";
+  };
+
   home.packages = with pkgs; [
     # CLI Basics
     eza # Better `ls`
