@@ -8,6 +8,32 @@ nix build
 result/activate
 ```
 
+## Test local changes before publishing
+
+The consumer flake (`template/flake.nix`, i.e. the `flake.nix` one directory up)
+pulls this repo from GitHub, so it normally only sees changes that have been
+pushed. To try out a local working copy first, override the input:
+
+```sh
+cd ~/Documents/nix-home
+nix build --override-input home-flake path:$PWD/home-flake
+result/activate
+```
+
+Notes:
+- `path:` copies the working tree as-is, so **uncommitted and untracked** changes
+  are included. (`git+file://` would only see committed content.)
+- The override is not written to `flake.lock` — Nix prints
+  `warning: not writing modified lock file`. Once you're happy, commit, push and
+  run a normal `nix flake update` to pin the real revision.
+- Check what actually got built before activating, e.g.
+  `cat result/home-files/.config/hunk/config.toml`.
+- Overriding forces a re-lock of this flake's own inputs, so you may see
+  `HTTP error 403 ... API rate limit exceeded ...; using cached version` for the
+  remaining `github:` inputs. That's a **warning**, not an error — Nix falls back
+  to the locked revision, which is what you wanted anyway. Only worry if the repo
+  named in the warning is one whose HEAD you actually needed to move.
+
 ----
 
 # Step by step Nix install
