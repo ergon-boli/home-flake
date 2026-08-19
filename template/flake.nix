@@ -2,7 +2,9 @@
   description = "Home Manager Configuration";
 
   inputs = {
-    home-flake.url = "github:ergon-boli/home-flake";
+    # git+https (not github:) avoids api.github.com, which is rate limited
+    # to 60 requests/hour per IP for unauthenticated requests
+    home-flake.url = "git+https://github.com/ergon-boli/home-flake";
     nixpkgs.follows = "home-flake/nixpkgs";
     flake-utils.follows = "home-flake/flake-utils";
     #in case you need to use a different nixpkgs
