@@ -22,9 +22,12 @@ The `hm*` aliases are defined in `modules/nixBase.nix` and switched on by `nix.h
 | `hmCd` | jump to the consumer |
 | `hmBuild` | build it |
 | `hmPull` | re-lock just the `home-flake` input |
-| `hmSwitch` | activate the **existing** `result` (does not build) |
+| `hmActivate` | activate whatever `result` currently points at |
+| `hmSwitch` | build, then activate |
 | `hmPullBuild` / `hmPullSwitch` | pull, then build / build and activate |
 | `hmLocalBuild` / `hmLocalSwitch` | build (and activate) against the local checkout |
+
+`hmActivate` is the shared last step of all three `*Switch` aliases. It stays separate from the build so the `Local` variants activate the result of their *overridden* build, rather than rebuilding without the override.
 
 ### Two repos, two jobs
 
@@ -65,7 +68,7 @@ edit home-flake → hmLocalSwitch → commit → push → hmPullSwitch
 Updating dependencies happens **only in the consumer**. Its lock is authoritative for every input, including the ones declared here, so `nixpkgs` and `hunk` are bumped there rather than in this repo:
 
 ```
-hmCd && nix flake update && hmBuild && hmSwitch
+hmCd && nix flake update && hmSwitch
 ```
 
 ### Which lock matters

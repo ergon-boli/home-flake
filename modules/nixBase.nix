@@ -14,15 +14,16 @@ with lib; let
       # flake based home manager utilities
       hmCd = "cd ${dir}";
       hmBuild = "hmCd && nix build .";
-      hmSwitch = "hmCd && ./result/activate && source ~/.config/fish/config.fish";
+      hmActivate = "hmCd && ./result/activate && source ~/.config/fish/config.fish";
+      hmSwitch = "hmBuild && hmActivate";
     }
     // optionalAttrs (baseFlake != null) {
       # assuming a home-flake setup
-      hmPull = "hmCd && nix flake lock --update-input ${baseFlake}";
+      hmPull = "hmCd && nix flake update ${baseFlake}";
       hmPullBuild = "hmPull && hmBuild";
-      hmPullSwitch = "hmPullBuild && hmSwitch";
+      hmPullSwitch = "hmPullBuild && hmActivate";
       hmLocalBuild = "hmCd && nix build . --override-input ${baseFlake} ./${baseFlake}";
-      hmLocalSwitch = "hmLocalBuild && hmSwitch";
+      hmLocalSwitch = "hmLocalBuild && hmActivate";
     };
   homePrefixDefault =
     if (builtins.match ".*-darwin" pkgs.stdenv.hostPlatform.system != null)
