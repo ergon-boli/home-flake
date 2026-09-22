@@ -60,6 +60,13 @@ in {
     settings = optionalAttrs (cfg.experimentalFeatures != null) {
       experimental-features = cfg.experimentalFeatures;
     };
+    # Machine-local secrets, e.g. `access-tokens = github.com=<token>`. The
+    # leading `!` makes the file optional, so machines without one still
+    # evaluate. Never put the token itself in nix.settings: everything there
+    # lands in the world-readable /nix/store.
+    extraOptions = ''
+      !include ${config.home.homeDirectory}/.config/nix/tokens.conf
+    '';
   };
   config.programs.fish.shellAliases = aliases; # optionalAttrs (cfg.hmConfigDir != null) aliases;
   config.home.stateVersion = "22.11"; # override with 'home.stateVersion = lib.mkForce "22.05";'

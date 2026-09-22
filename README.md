@@ -162,6 +162,18 @@ nix flake update
 
 When *adding* an input, use `nix flake lock` instead — it fills in missing entries without bumping anything that is already pinned.
 
+## GitHub API rate limit
+`github:` inputs resolve their revision through `api.github.com`, which allows 60 requests/hour for unauthenticated requests, counted per IP -- so on a shared office address it runs out. Nix then warns and falls back to its last cached lookup, which is *not* the same as leaving the lock alone: the cached revision can be newer than the pin.
+
+An unscoped personal access token lifts that to 5000/hour. It must not go in `nix.settings`, because everything there lands in the world-readable `/nix/store`; `modules/nixBase.nix` instead points nix at a machine-local file that is never committed:
+
+```sh
+install -m600 /dev/null ~/.config/nix/tokens.conf
+echo 'access-tokens = github.com=<token>' > ~/.config/nix/tokens.conf
+```
+
+Machines without that file are unaffected -- the include is prefixed with `!`, which makes a missing file non-fatal.
+
 ## Run `nix-tree`
 Handy to see sizes etc.
 
