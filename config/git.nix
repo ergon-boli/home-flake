@@ -83,6 +83,7 @@
       line_numbers = true;
       wrap_lines = true;
       agent_notes = true;
+      hunk_headers = false;
     };
   };
 }
