@@ -84,9 +84,8 @@
       # Misc
       flush_dns = "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder";
 
-      # Nix
+      # Nix -- see modules/nixBase.nix for the hm* aliases
       HF = "cd ~/Documents/nix-home/home-flake";
-      s = "cd ~/Documents/nix-home && nix build && result/activate && source ~/.config/fish/config.fish";
 
       # x86_64 version of homebrew
       oldbrew = "/usr/local/bin/brew";
