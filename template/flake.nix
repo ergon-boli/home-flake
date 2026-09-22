@@ -28,6 +28,8 @@
           # ./myconfig.nix # additional modules
         ];
         # additional inline configuration
+        # Per-machine git identity -- home-flake deliberately does not set
+        # this, so each machine picks the identity that is right for it.
         programs.git.settings = {
           user.name = "bOli";
           user.email = "github.profile@bueechi.net";
