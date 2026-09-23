@@ -32,6 +32,7 @@
           inputs.hunk.homeManagerModules.default
           ./config/common.nix
           ./config/git.nix
+          ./config/jj.nix
           ./config/fish.nix
         ];
       };
