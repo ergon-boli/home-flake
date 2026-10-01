@@ -30,6 +30,7 @@
       boli = {
         imports = [
           inputs.hunk.homeManagerModules.default
+          ./modules/sudoAskpass.nix
           ./config/common.nix
           ./config/git.nix
           ./config/jj.nix
