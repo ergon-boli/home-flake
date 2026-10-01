@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   # Add Fish plugins
   home.packages = [pkgs.fishPlugins.done];
 
@@ -85,10 +89,8 @@
       flush_dns = "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder";
 
       # Nix -- see modules/nixBase.nix for the hm* aliases
-      HF = "cd ~/Documents/nix-home/home-flake";
-
-      # x86_64 version of homebrew
-      oldbrew = "/usr/local/bin/brew";
+      NH = "cd ${config.nix.hmConfigDir}";
+      HF = "cd ${config.nix.hmConfigDir}/${config.nix.hmBaseFlake}";
     };
     # Abbreviate commonly used functions
     # An abbreviation will expand after <space> or <Enter> is hit
