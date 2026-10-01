@@ -7,6 +7,8 @@
   # https://github.com/anthropics/claude-code/issues/24479
   home.sessionVariables = {
     CLAUDE_CONFIG_DIR = "${config.home.homeDirectory}/.claude";
+    # --wait blocks until the BBEdit window is closed, --resume returns to the terminal
+    EDITOR = "bbedit --wait --resume";
   };
 
   home.packages = with pkgs; [
