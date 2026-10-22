@@ -65,7 +65,6 @@
       DL = "cd ~/Downloads";
       nd = "cd ~/Documents/NAS/docu";
       wk = "cd ~/work";
-      ws = "cd $WORKSPACE";
       pj = "cd $WORKSPACE/$PROJECT";
       te = "cd $WORKSPACE/taifun-evergreen";
       eas = "cd $WORKSPACE/eas";
@@ -78,8 +77,8 @@
       mp = "set -g PROJECT taifun-evergreen/mnet && set -g WORKSPACE $WORKSPACES/mnet/prod/ && te";
       dts = "set -g PROJECT dtst && set -g WORKSPACE $WORKSPACES/dtst/devel/ && pj";
       wg = "cd ~/work/git_projects";
-      gaf = "ws; ../git-all fetch; te";
-      gap = "ws; ../git-all pull; te";
+      gaf = "ws; and ../git-all fetch; and te";
+      gap = "ws; and ../git-all pull; and te";
       gspp = "git stash && git pull && git stash pop";
 
       # edit important files
@@ -142,6 +141,21 @@
       yrs = "yabai --restart-service";
     };
     functions = {
+      ws = {
+        description = "cd to the current workspace, inferring it from the current directory if unset";
+        body = ''
+          if not set -q WORKSPACE
+              set -l root (string escape --style=regex -- (string trim -r -c / -- "$WORKSPACES"))
+              set -l inferred (string match -r -- "^$root/[^/]+/[^/]+" $PWD)
+              if test -z "$root"; or test -z "$inferred"
+                  echo "ws: \$WORKSPACE is not set and $PWD is not inside a workspace under \$WORKSPACES" >&2
+                  return 1
+              end
+              set -g WORKSPACE $inferred/
+          end
+          cd $WORKSPACE
+        '';
+      };
       fish_greeting = {
         description = "Greeting to show when starting a fish shell";
         body = "";
