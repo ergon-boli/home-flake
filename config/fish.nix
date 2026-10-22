@@ -77,8 +77,8 @@
       mp = "set -g PROJECT taifun-evergreen/mnet && set -g WORKSPACE $WORKSPACES/mnet/prod/ && te";
       dts = "set -g PROJECT dtst && set -g WORKSPACE $WORKSPACES/dtst/devel/ && pj";
       wg = "cd ~/work/git_projects";
-      gaf = "ws; and ../git-all fetch; and te";
-      gap = "ws; and ../git-all pull; and te";
+      gaf = "ws; and git-all fetch; and te";
+      gap = "ws; and git-all pull; and te";
       gspp = "git stash && git pull && git stash pop";
 
       # edit important files
@@ -141,6 +141,29 @@
       yrs = "yabai --restart-service";
     };
     functions = {
+      git-all = {
+        description = "Run a git command in every git/jj repo below the current directory; pull fetches jj repos";
+        body = ''
+          for dir in */
+              set dir (string trim -r -c / -- $dir)
+              if test -d $dir/.jj
+                  set branch (jj -R $dir log --no-graph -r 'heads(::@ & bookmarks())' -T 'bookmarks.join(" ")' 2>/dev/null)
+                  if test "$argv[1]" = pull
+                      set result (jj -R $dir git fetch 2>&1)
+                  else
+                      set result (git -C $dir $argv 2>&1)
+                  end
+              else if test -e $dir/.git
+                  set branch (git -C $dir branch --show-current)
+                  set result (git -C $dir $argv 2>&1)
+              else
+                  continue
+              end
+              echo -n "--- "(set_color -o yellow)$dir(set_color normal)" on "(set_color magenta)\ue0a0" $branch"(set_color normal)": "
+              printf '%s\n' $result
+          end
+        '';
+      };
       ws = {
         description = "cd to the current workspace, inferring it from the current directory if unset";
         body = ''
