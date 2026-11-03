@@ -54,10 +54,38 @@
       uc = "reset --soft HEAD~1";
     };
   };
-  # Enhanced diffs with [hunk](https://github.com/modem-dev/hunk) as pager
-  programs.hunk = {
+  # Inline diffs: delta as the pager for both git and jj
+  programs.delta = {
     enable = true;
     enableGitIntegration = true;
+    enableJujutsuIntegration = true;
+    options = {
+      side-by-side = false;
+      navigate = true;
+      line-numbers = true;
+      tabs = 4;
+      # print straight into the scrollback, however long; for long diffs, run hunk (hd) by hand
+      paging = "never";
+      syntax-theme = "Solarized (dark)";
+      # compact, hunk-like layout: no hunk header boxes, no file rule or Δ
+      hunk-header-style = "omit";
+      file-decoration-style = "none";
+      file-style = "#93a1a1 bold";
+      file-modified-label = "";
+      keep-plus-minus-markers = true;
+      # line-number gutter as a base02 panel, numbers coloured by line type;
+      # left/right-style paint the ⋮/│ separators in the panel colour
+      line-numbers-zero-style = "#586e75 #073642";
+      line-numbers-minus-style = "#dc322f #073642";
+      line-numbers-plus-style = "#859900 #073642";
+      line-numbers-left-style = "#073642 #073642";
+      line-numbers-right-style = "#073642 #073642";
+    };
+  };
+  # [hunk](https://github.com/modem-dev/hunk) for deliberate reviews (hd, hunk show, hunk-walk)
+  programs.hunk = {
+    enable = true;
+    enableGitIntegration = false;
     settings = {
       theme = "auto";
       mode = "stack";

@@ -261,7 +261,7 @@
         '';
       };
       jj-walk = {
-        description = "Review each commit of a jj revset via jj show (hunk pager), oldest first";
+        description = "Review each commit of a jj revset via jj show (delta pager), oldest first";
         body = ''
           set -l revset 'trunk()..@'
           if test (count $argv) -gt 0
