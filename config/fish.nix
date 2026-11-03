@@ -77,6 +77,7 @@
       mp = "set -g PROJECT taifun-evergreen/mnet && set -g WORKSPACE $WORKSPACES/mnet/prod/ && te";
       dts = "set -g PROJECT dtst && set -g WORKSPACE $WORKSPACES/dtst/devel/ && pj";
       wg = "cd ~/work/git_projects";
+      AD = "cd $WORKSPACES/mnet/agent_data";
       gaf = "ws; and git-all fetch; and te";
       gap = "ws; and git-all pull; and te";
       gspp = "git stash && git pull && git stash pop";
@@ -95,6 +96,7 @@
     # An abbreviation will expand after <space> or <Enter> is hit
     shellAbbrs = {
       b = "bat";
+      bug = "brew upgrade --greedy";
       d = "diskutil";
       g = "git";
       ga = "git add";
@@ -135,6 +137,7 @@
       gt = "git tag";
       gus = "git restore --staged";
       guc = "git reset --soft HEAD~1";
+      hd = "hunk diff";
       # jj equivalents of the git abbreviations above
       j = "jj";
       jab = "jj abandon";
@@ -145,17 +148,19 @@
       jcm = "jj commit -m";
       jd = "jj diff";
       jdm = "jj describe -m";
+      jdn = "jj diff --name-only --no-pager -r";
+      jdo = "jj diff --from 'trunk()'";
       je = "jj edit";
       jf = "jj git fetch";
-      jl = "jj l";
       jn = "jj new";
-      jph = "jj git push";
+      jp = "jj git push";
       jr = "jj restore";
       jrb = "jj rebase";
       js = "jj st";
       jsp = "jj split";
       jsq = "jj squash";
-      jss = "jj ss";
+      jss = "jj show --summary --no-pager";
+      jsum = "jj squash --use-destination-message";
       ju = "jj undo";
       v = "vim";
       yss = "yabai --start-service";
