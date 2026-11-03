@@ -7,6 +7,9 @@
     settings = {
       ui.default-command = ["log" "--no-pager"];
 
+      # move a main bookmark along with `jj commit`/`jj new`, as git does on a branch
+      experimental-advance-branches.enabled-branches = ["main"];
+
       # show the current work plus all truly local commits: `immutable_heads()..`
       # is the unpushed work, and stays small as long as stale local branches get
       # cleaned up now and then (see the `stale` alias below). For the narrow view
