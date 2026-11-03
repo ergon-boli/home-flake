@@ -10,8 +10,10 @@
       # show the current work plus all truly local commits: `immutable_heads()..`
       # is the unpushed work, and stays small as long as stale local branches get
       # cleaned up now and then (see the `stale` alias below). For the narrow view
-      # of just the current line, use `jj log -r 'line()'`.
-      revsets.log = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())";
+      # of just the current line, use `jj log -r 'line()'`. Trunk also shows my own
+      # commits of the last 24 hours (by author date, which rewrites keep) plus the
+      # one below them, so freshly pushed work and its base stay visible.
+      revsets.log = "present(@) | ancestors(immutable_heads().., 2) | ancestors((::present(trunk()) & mine() & author_date(after:\"1 day ago\")) | present(trunk()), 2)";
 
       # non-unique remainder of change/commit ids; the default "bright black"
       # is invisible on Solarized Dark (bright black = base03 = background).
