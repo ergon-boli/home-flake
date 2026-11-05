@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   # Git
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.git.enable
   programs.git = {
@@ -82,6 +87,9 @@
       line-numbers-right-style = "#073642 #073642";
     };
   };
+  # git log alone pages (quitting at once when it fits one screen), unlike diff/show/blame;
+  # the delta module writes pager.log into iniContent itself, hence mkForce
+  programs.git.iniContent.pager.log = lib.mkForce "${lib.getExe config.programs.delta.package} --paging=auto";
   # [hunk](https://github.com/modem-dev/hunk) for deliberate reviews (hd, hunk show, hunk-walk)
   programs.hunk = {
     enable = true;
